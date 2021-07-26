@@ -1,11 +1,10 @@
 # mutmut.nvim
 
-Displays mutmut mutation found in code.
+Displays mutmut mutant found in code.
 
 ## Requirements
 
 - Neovim 0.4.4+
-- lsqlite3 (can install with `sudo luarocks install lsqlite3`)
 
 ## Installation
 
@@ -16,3 +15,8 @@ use {'diegorubin/mutmut.nvim'}
 ```
 
 ## Settings
+
+```
+require'mutmut'.setup {
+}
+```
