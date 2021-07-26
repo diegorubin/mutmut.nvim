@@ -1,4 +1,4 @@
-# mutmut.nvim
+# mutmut.nvim [WIP]
 
 Displays mutmut mutant found in code.
 
