@@ -2,6 +2,8 @@
 
 Displays mutmut mutant found in code.
 
+![example.png example](/doc/example.png)
+
 ## Requirements
 
 - Neovim 0.4.4+
