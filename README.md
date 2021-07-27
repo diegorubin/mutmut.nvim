@@ -9,6 +9,7 @@ Displays mutmut mutant found in code.
 ## Requirements
 
 - Neovim 0.4.4+
+- `sqlite3` command line
 
 ## Installation
 
