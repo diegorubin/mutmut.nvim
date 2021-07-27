@@ -1,8 +1,10 @@
-# mutmut.nvim [WIP]
+# mutmut.nvim
 
 Displays mutmut mutant found in code.
 
 ![example.png example](/doc/example.png)
+
+![showdiff.png showdiff](/doc/showdiff.png)
 
 ## Requirements
 
