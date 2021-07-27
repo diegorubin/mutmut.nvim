@@ -33,11 +33,24 @@ function M.find_mutations(buf)
     for line in command:lines() do
         for line_number, value in string.gmatch(line, "(%d+)|(%d+)") do
             mutations[line_number] = value
-            io.write(type(line_number))
         end
     end
     command.close()
     return mutations
+end
+
+function M.apply()
+    local buf = vim.api.nvim_get_current_buf()
+    local mutations = M.find_mutations(buf)
+    local cursor = vim.api.nvim_win_get_cursor(0)
+    local row = cursor[1]
+
+    if mutations[tostring(row - 1)] then
+        os.execute("mutmut apply " .. mutations[tostring(row - 1)])
+        vim.api.nvim_command("windo e")
+    else
+        vim.api.nvim_echo({{"Mutation not found in this line!"}}, false, {})
+    end
 end
 
 function M.setup(c)
