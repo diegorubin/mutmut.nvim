@@ -53,6 +53,34 @@ function M.apply()
     end
 end
 
+function M.showdiff()
+    local buf = vim.api.nvim_get_current_buf()
+    local mutations = M.find_mutations(buf)
+    local cursor = vim.api.nvim_win_get_cursor(0)
+    local row = cursor[1]
+
+    if mutations[tostring(row - 1)] then
+        local output = vim.api.nvim_create_buf(false, true)
+        local command = assert(io.popen("mutmut show " ..
+                                            mutations[tostring(row - 1)]))
+        local content = {}
+        for line in command:lines() do table.insert(content, line) end
+
+        vim.api.nvim_buf_set_lines(output, 0, -1, true, content)
+        vim.api.nvim_open_win(output, 0, {
+            relative = "cursor",
+            width = 100,
+            height = 15,
+            bufpos = {100, 10}
+        })
+
+        command.close()
+    else
+        vim.api.nvim_echo({{"Mutation not found in this line!"}}, false, {})
+    end
+
+end
+
 function M.setup(c)
     prescript = c.prescript or "Mutation: "
     ft = c.ft or '*.py'

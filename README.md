@@ -25,3 +25,8 @@ require'mutmut'.setup {
     mutmut_cache_file = "./.mutmut-cache"
 }
 ```
+
+## Commands
+
+- __MutmutApply:__ execute mutmut apply for mutation found in current line
+- __MutmutShowDiff:__ open window to show mutation diff
