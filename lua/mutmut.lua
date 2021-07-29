@@ -112,7 +112,7 @@ function M.draw(buf)
     end
 end
 
-function M.clear(buf) vim.api.nvim_buf_clear_namespace(buf, _VT_NS, 0, -1) end
+function M.clear(buf) vim.api.nvim_buf_clear_namespace(buf, namespace, 0, -1) end
 
 function M.redraw(buf)
     M.clear(buf)
